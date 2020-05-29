@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/style.css">
+</head>
+
+<body>
+
+    <%- include ('partials/header.ejs') %>
+    <%- include ('partials/navigation.ejs') %>
+
+    <main class="container-fluid p-5">
+        <div class="row">
+            <section class="col-sm-3 container">
+                <div class="card">
+                    <h1 class="card-header text-uppercase font-weight-bold">Login</h1>
+                    <div class="card-body mt-2">
+                        <form method="POST" action="/login">
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="pass">Password:</label>
+                                <input type="password" class="form-control" id="pass" name="pass" required>
+                            </div>
+                            <% if (typeof errorMessages != 'undefined'){ %>
+                            <div>
+                                <table>
+                                    <% for (var i = 0; i < errorMessages.length ; i++) { %>
+                                    <tr>
+                                        <td class="text-danger">*<%=errorMessages[i].msg%></td>
+                                    </tr>
+                                    <% } %>
+                                </table>
+                            </div>
+                            <% } %>
+                            <button type="submit" class="btn btn-success btn-lg mt-2">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <%- include ('partials/footer.ejs') %>
+
+</body>
+
+</html>

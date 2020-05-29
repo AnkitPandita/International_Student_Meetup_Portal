@@ -1,0 +1,28 @@
+<header class="container-fluid headerFooter">
+    <div class="row p-2">
+        <div class="col-sm-8">
+            <a href="/" class="my-auto">
+                <img src="/assets/images/logo.png" class="img-fluid" alt="logo" width="300">
+            </a>
+        </div>
+        <aside class="col-sm-4">
+            <div class="d-flex justify-content-end align-items-start">
+                <a class="btn btn-outline-light" href="/startNewConnection">Start a new connection</a>
+                <%if (typeof user != 'undefined'){ %>
+                    <a class="btn btn-outline-light ml-2" href="/savedConnections">My connections</a>
+                    <a class="btn btn-outline-light ml-2" href="/signout">Sign Out</a>
+                <% } else {%>
+                    <a class="btn btn-outline-light ml-2" href="/login">Login</a>
+                    <a class="btn btn-outline-light ml-2" href="/">Sign Up</a>
+                <% } %>
+            </div>
+            <div class="d-flex justify-content-end mt-1">
+                <%if (typeof user != 'undefined'){ %>
+                    <p class="text-warning">Welcome <%= user.UserFirstName + " " + user.UserLastName %>!</p>
+                <% } else {%>
+                    <p class="text-warning">Not logged in!</p>
+                <% } %>
+            </div>
+        </aside>
+    </div>
+</header>

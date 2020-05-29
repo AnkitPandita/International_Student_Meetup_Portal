@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Contact</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/style.css">
+</head>
+
+<body>
+
+    <%- include ('partials/header.ejs') %>
+    <%- include ('partials/navigation.ejs') %>
+
+    <main class="container-fluid p-5">
+        <div class="row">
+            <section class="col-sm-7 container">
+                <div class="card">
+                    <h1 class="card-header text-uppercase font-weight-bold">Contact us</h1>
+                    <div class="card-body mt-2">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>Address: </th><td>9201 University City Blvd, Charlotte, NC 28223</td>
+                            </tr>
+                            <tr>
+                                <th>Phone: </th><td>+1 (980) 888-7770</td>
+                            </tr>
+                            <tr>
+                                <th>Email: </th><td>apandita@uncc.edu</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            <aside class="col-sm-4 container">
+                <img src="/assets/images/professor.jpg" class="img-fluid" alt="Android Development with Kotlin"
+                    width="500" height="500">
+            </aside>
+        </div>
+    </main>
+
+    <%- include ('partials/footer.ejs') %>
+
+</body>
+
+</html>

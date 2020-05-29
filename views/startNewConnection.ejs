@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Create new connection</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <%- include ('partials/header.ejs') %>
+    <%- include ('partials/navigation.ejs') %>
+
+    <main class="container-fluid p-5">
+        <div class="row">
+            <section class="col-sm-7 container">
+                <div class="card">
+                    <h1 class="card-header text-uppercase font-weight-bold">Start a New Connection</h1>
+                    <div class="card-body mt-2">
+                        <form method="POST" action="/startNewConnection">
+                            <div class="form-group">
+                                <label for="name">Connection Name:</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                                <% if(errorMessages[0]) { %><label
+                                    class="text-danger">*<%= errorMessages[0].msg %></label><br><% } %>
+                            </div>
+                            <div class="form-group">
+                                <label for="topic">Topic:</label>
+                                <input type="text" class="form-control" id="topic" name="topic" required>
+                                <% if(errorMessages[1]) { %><label
+                                    class="text-danger">*<%= errorMessages[1].msg %></label><br><% } %>
+                            </div>
+                            <div class="form-group">
+                                <label for="type">Type:</label>
+                                <select class="form-control" id="type" name="type" required>
+                                    <option value="" disabled selected>Select your option</option>
+                                    <option>Studies</option>
+                                    <option>Dance & Music</option>
+                                    <option>Sports & Games</option>
+                                    <option>Cooking</option>
+                                    <option>Art & Craft</option>
+                                </select>
+                                <% if(errorMessages[2]) { %><label
+                                    class="text-danger">*<%= errorMessages[2].msg %></label><br><% } %>
+                            </div>
+                            <div class="form-group">
+                                <label for="by">By:</label>
+                                <input type="text" class="form-control" id="by" name="by" required>
+                                <% if(errorMessages[3]) { %><label
+                                    class="text-danger">*<%= errorMessages[3].msg %></label><br><% } %>
+                            </div>
+                            <div class="form-group">
+                                <label for="details">Details:</label>
+                                <textarea class="form-control" id="details" name="details" rows="3" required></textarea>
+                                <% if(errorMessages[4]) { %><label
+                                    class="text-danger">*<%= errorMessages[4].msg %></label><br><% } %>
+                            </div>
+                            <div class="form-group">
+                                <label for="location">Location:</label>
+                                <input type="text" class="form-control" id="location" name="location" required>
+                                <% if(errorMessages[5]) { %><label
+                                    class="text-danger">*<%= errorMessages[5].msg %></label><br><% } %>
+                            </div>
+                            <div class="form-group">
+                                <label for="date">Date:</label>
+                                <input type='date' class="form-control" id='date' name="date" min="<%= selectDate %>" required/>
+                                <% if(errorMessages[6]) { %><label
+                                    class="text-danger">*<%= errorMessages[6].msg %></label><br><% } %>
+                            </div>
+                            <div class="form-group">
+                                <label for="time">Time:</label>
+                                <input type='time' class="form-control" id='time' name="time" required/>
+                                <% if(errorMessages[7]) { %><label
+                                    class="text-danger">*<%= errorMessages[7].msg %></label><br><% } %>
+                            </div>
+                            <button type="submit" class="btn btn-success btn-lg btn-block mt-5">Create
+                                Connection</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <%- include ('partials/footer.ejs') %>
+
+</body>
+
+</html>

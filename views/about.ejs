@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>About</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/style.css">
+</head>
+
+<body>
+
+    <%- include ('partials/header.ejs') %>
+    <%- include ('partials/navigation.ejs') %>
+
+    <main class="container-fluid p-5">
+        <div class="row">
+            <section class="col-sm-7 container">
+                <div class="card">
+                    <h1 class="card-header text-uppercase font-weight-bold">About us</h1>
+                    <div class="card-body mt-2">
+                        <p>
+                            International Student Meetup is a platform that creates opportunities to meet students from
+                            all over the world as well as other US students. It is an informal gathering over various interests
+                            of students like dance, music, studies, coding, social and cultural activities, and games. The
+                            purpose of thses meetups is to engage and encourage international students in activities
+                            from different cultures and backgrounds, learn new skills, games, dance and music forms from
+                            across more than 150 countries.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <aside class="col-sm-4">
+                <img src="/assets/images/meetup.jpg" class="img-fluid" alt="Meetup" width="500" height="500">
+            </aside>
+        </div>
+    </main>
+
+    <%- include ('partials/footer.ejs') %>
+
+</body>
+
+</html>

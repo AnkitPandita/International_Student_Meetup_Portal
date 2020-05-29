@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Connections</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/style.css">
+</head>
+
+<body>
+
+    <%- include ('partials/header.ejs') %>
+    <%- include ('partials/navigation.ejs') %>
+
+    <main class="container-fluid p-5">
+
+        <% Object.keys(connectionData).forEach(value=>{ %>
+        <article class="card mb-5 bg-info text-white">
+            <section class="card-header d-flex justify-content-center mb-4">
+                <h1 class="card-title text-uppercase font-weight-bold text-white"><%= value %></h1>
+            </section>
+            <section class="card-body row">
+                <% connectionData[value].forEach(connection=>{ %>
+                <a href="<%= '/connection?connectionId=' + connection.connectionId %>" class="col-lg-4 mb-3 mb-lg-0">
+                    <div class="hover hover-3 text-white rounded mb-4">
+                        <img src="<%=connection.connectionImg %>" class="img-fluid" width="900">
+                        <div class="hover-overlay"></div>
+                        <div class="hover-3-content px-5 py-4">
+                            <h3 class="hover-3-title text-uppercase font-weight-bold mb-1">
+                                <%=connection.connectionName %>
+                            </h3>
+                        </div>
+                    </div>
+                </a>
+                <% }); %>
+            </section>
+        </article>
+        <% }); %>
+
+    </main>
+
+    <%- include ('partials/footer.ejs') %>
+
+</body>
+
+</html>

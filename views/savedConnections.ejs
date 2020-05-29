@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>My Connections</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/style.css" />
+</head>
+
+<body>
+  <%- include ('partials/header.ejs') %>
+  <%- include ('partials/navigation.ejs') %>
+
+  <main class="container-fluid p-5">
+    <div class="card">
+      <h2 class="card-header text-uppercase font-weight-bold p-3">
+        Your Connections
+      </h2>
+      <div class="card-body p-4">
+        <% if (userConnections.length > 0) { %>
+        <table class="table table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th>Connection</th>
+              <th>Category</th>
+              <th>Going?</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% userConnections.forEach(value=>{ %>
+            <tr>
+              <td><%= value.connection.connectionName %></td>
+              <td><%= value.connection.connectionType %></td>
+              <td><%= value.userRSVP %></td>
+              <td>
+                <a class="btn btn-outline-info"
+                  href="<%= '/connection?connectionId=' + value.connection.connectionId %>">Update</a>
+                <a class="btn btn-outline-danger ml-2"
+                  href="<%= '/delete?connectionId=' + value.connection.connectionId %>">Delete</a>
+              </td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
+        <% } else { %>
+        <p>
+          You have no connections in your profile. Check out the available
+          connections or host your own connections.
+        </p>
+        <% } %>
+      </div>
+    </div>
+  </main>
+
+  <%- include ('partials/footer.ejs') %>
+</body>
+
+</html>

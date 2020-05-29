@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title><%= connectionDetails.connectionName %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/style.css">
+</head>
+
+<body>
+
+    <%- include ('partials/header.ejs') %>
+    <%- include ('partials/navigation.ejs') %>
+
+    <main class="container-fluid p-5">
+        <div class="row">
+            <section class="col-sm-9 container">
+                <div class="card">
+                    <h1 class="card-header text-uppercase font-weight-bold"><%= connectionDetails.connectionName %></h1>
+                    <div class="card-body mt-2">
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <img src="<%= connectionDetails.connectionImg %>" class="img-fluid" alt="<%= connectionDetails.connectionName %>"
+                                    width="500" height="500">
+                            </div>
+                            <div class="col-sm-7">
+                                <h4 class="text-uppercase font-weight-bold"><%= connectionDetails.connectionTopic %>
+                                </h4>
+                                <p class="font-weight-bold">By <%= connectionDetails.connectionBy %></p>
+                                <p>
+                                    <%= connectionDetails.connectionDate %><br>
+                                    At <%= connectionDetails.connectionTime %><br>
+                                    <%= connectionDetails.connectionLocation %>
+                                </p>
+                            </div>
+                        </div>
+                        <h3 class="font-weight-bold mt-4">Details</h3>
+                        <p><%= connectionDetails.connectionDetails %></p>
+                    </div>
+                </div>
+            </section>
+            <aside class="col-sm-3">
+                <p>Are you going to attend?</p>
+                <div>
+                    <a href="<%= '/savedConnections/updateRSVP?status=Yes&connectionId=' + connectionDetails.connectionId %>"
+                        class="btn btn-success">Yes</a>
+                    <a href="<%= '/savedConnections/updateRSVP?status=No&connectionId=' + connectionDetails.connectionId %>"
+                        class="btn btn-danger">No</a>
+                    <a href="<%= '/savedConnections/updateRSVP?status=Maybe&connectionId=' + connectionDetails.connectionId %>"
+                        class="btn btn-warning">Maybe</a>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <%- include ('partials/footer.ejs') %>
+
+</body>
+
+</html>
