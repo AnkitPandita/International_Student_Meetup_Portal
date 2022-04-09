@@ -20,7 +20,7 @@
     "express-session": "^1.17.0",
     "express-validator": "^6.4.1",
     "lodash": "^4.17.21",
-    "moment": "^2.25.1",
+    "moment": "^2.29.2",
     "mongoose": "^5.9.9",
     "uuid": "^7.0.3"
   }
